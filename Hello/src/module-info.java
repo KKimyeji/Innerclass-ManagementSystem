@@ -1,0 +1,3 @@
+module helloyeji {
+	exports helloYeji;
+}
