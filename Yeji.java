@@ -1,4 +1,4 @@
-class HelloYejiWorld {
+package HelloYejiWorld {
 
 	public static void main(String[] args) {
 		System.out.println("Heollo Yeji World");
