@@ -5,8 +5,10 @@ import java.util.Scanner;
 class InnerclassManagement {
 
 	public static void main(String[] args) {
-		int num = 0;
+		int num =0;
 		Scanner input = new Scanner(System.in);
+		num = input.nextInt();
+		System.out.print("num"+ num);
 		
 		while (num !=6) {
 		System.out.println("1. Add class");
@@ -16,34 +18,54 @@ class InnerclassManagement {
 		System.out.println("5. show a Menu");
 		System.out.println("6. Exit");
 		System.out.println("choose only one number between 1-6:");
-		num = input.nextInt();
-		switch(num) {
-		case 1:
-			System.out.println("classname:");
-			String classname = input.next();
-			break;
-		case 2:
-			System.out.println("classplace:");
-		    String classplace = input.next();
-		    break;
-		case 3:
-			System.out.println("clasID:");
-	        String classID = input.next();
-	        break;
-			
-		case 4:
-			System.out.println("classTime:");
-            String classTime = input.next();
-            break;
-			
+		
+		
+		if (num == 1) {
+		      Addclass();
+		 }
+		 else if (num == 2) {
+		      Deleteclass();
+		 
 		}
+		 else if (num == 3) {
+		      Editclass();
 		
 			
 		}
+		 else if (num == 4) {
+		       Viewclass();
 		
+		 }
+		 
 		}
 	}
+	 
+	    public static void Addclass() {
+		Scanner input = new Scanner(System.in);
+			System.out.println("classname");
+			String classname = input.nextLine();
+		
+	}
+	    public static void Deleteclass() {
+	    Scanner input = new Scanner(System.in);
+				System.out.println("classplace");
+				String classplace = input.nextLine();
+			
+	    }
 
+	    public static void Editclass() {
+	    	Scanner input = new Scanner(System.in) ;
+				System.out.println("classID");
+				int classID = input.nextInt();
+			
+	    }
+	    public static void Viewclass() {
+	    	Scanner input = new Scanner(System.in);
+				System.out.println("classtime");
+				String classtime = input.nextLine();
+			
+	    }
+}
 	
 
 
