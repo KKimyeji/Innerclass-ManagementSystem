@@ -41,10 +41,8 @@ class InnerclassManagement {
 	    public  void Deleteclass() {
 				System.out.print("classname");
 				String classname = input.nextLine();
-				int index = -1;
 				for(int i =0; i< classes.size(); i ++) {
 					if(classes.get(i).getclassname() == classname) {
-						index = 1;
 						break;
 					}
 				}
