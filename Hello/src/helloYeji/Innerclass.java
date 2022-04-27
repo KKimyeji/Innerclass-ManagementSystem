@@ -50,17 +50,42 @@ public class Innerclass {
 	
 	
  public Innerclass() {
+	 
+ }
+ 
+ public Innerclass( Innerclasskind kind) {
+	 this.kind = kind;
  }
  
  
- public Innerclass(String classname,String classplace,String classID, String classtime) {
+ public Innerclass(Innerclasskind kind,String classname,String classplace,String classID, String classtime) {
+	 this.kind = kind;
 	 this.classname = classname;
 	 this.classplace = classplace;
 	 this.classID = classID;
 	 this.classtime = classtime;
      }
+
  public void printInfo() {
-	 System.out.println("classname:"+ classname + "classplace:"+ classplace + "classID:"+ classID + "calsstime:"+classtime);
+	 String ckind = "nothing";
+	 switch(this.kind) {
+	 case childclass:
+		 ckind = "child";
+	     break;
+	 case Oldageclass:
+		 ckind = "Oldage";
+	     break;
+	 case Teenagerclass:
+		 ckind = "Teenager";
+	     break;
+	 case Adultclass:
+		 ckind = "Adult";
+	     break;
+	  default:  
+		  
+	 }
+ 
+	 System.out.println("kind:"+ ckind + "classname:"+ classname + "classplace:"+ classplace + "classID:"+ classID + "calsstime:"+classtime);
  }
  public void getUserInput(Scanner input) {
 		System.out.print("classname");
