@@ -14,20 +14,26 @@ class InnerclassManagement {
 	    	int kind = 0;
 	    	Innerclass classes;
 	    	while(kind != 1 && kind != 2) {
-	    	System.out.print("The frist: childclass");
-	    	System.out.print("The second: Oldageclass");
-	    	System.out.print("1번과 2번 중 고르시오:");
+	    	System.out.println("The frist: childclass");
+	    	System.out.println("The second: Oldageclass");
+	    	System.out.println("The Third: Adultclass ");
+	    	System.out.print("1,2,3번 중 고르시오:");
 	    	kind = input.nextInt();
 	    	if(kind == 1) {
-			 classes = new Innerclass();
+			 classes = new Innerclass(Innerclasskind.childclass);
 			 classes.getUserInput(input);
 			
 	    		break;
 	    	}
 	    	else if(kind == 2) {
-		     classes = new OldageclassInnerclass();
+		     classes = new OldageclassInnerclass(Innerclasskind.Oldageclass);
 		     classes.getUserInput(input);
 	    		break;
+	    	}
+	    	else if(kind == 3) {
+			     classes = new Adultclass(Innerclasskind.Adultclass);
+			     classes.getUserInput(input);
+		    		break;
 	    	}
 	    	else {
 	    		System.out.print("choose one:");
