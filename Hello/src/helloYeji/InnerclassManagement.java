@@ -49,7 +49,7 @@ class InnerclassManagement {
 				String classname = input.nextLine();
 				for(int i =0; i< classes.size(); i ++) {
 					if(classes.get(i).getclassname() == classname) {
-						break;
+					 classes.remove(classes.get(i));
 					}
 				}
 	    }
