@@ -2,7 +2,7 @@ package helloYeji;
 
 import java.util.Scanner;
 
-public class OldageclassInnerclass extends Innerclass {
+public class OldageclassInnerclass extends Innerclass implements Input {
 	
 	public OldageclassInnerclass( Innerclasskind kind) {
 		 super (kind);
@@ -41,5 +41,28 @@ public class OldageclassInnerclass extends Innerclass {
 			String classtime = input.next();
 			this.setclasstime(classtime);
 }
+
+	 public void printInfo() {
+		 String ckind = "nothing";
+		 switch(this.kind) {
+		 case childclass:
+			 ckind = "child";
+		     break;
+		 case Oldageclass:
+			 ckind = "Oldage";
+		     break;
+		 case Teenagerclass:
+			 ckind = "Teenager";
+		     break;
+		 case Adultclass:
+			 ckind = "Adult";
+		     break;
+		  default:  
+			  
+		 }
+		 System.out.println("kind:"+ ckind + "classname:"+ classname + "classplace:"+ classplace + 
+				 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
+	
+	 }
 }
 
