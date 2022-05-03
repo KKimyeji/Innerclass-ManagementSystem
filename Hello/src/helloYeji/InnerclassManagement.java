@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
     
 class InnerclassManagement {
-	ArrayList <Innerclass> classes = new ArrayList <Innerclass>();
+	ArrayList <Input> classes = new ArrayList <Input>();
 	Scanner input;	
 	InnerclassManagement(Scanner input){
 		this.input = input;
@@ -12,7 +12,7 @@ class InnerclassManagement {
 	
 	    public  void Addclass() {
 	    	int kind = 0;
-	    	Innerclass classes;
+	    	Input Input;
 	    	while(kind != 1 && kind != 2) {
 	    	System.out.println("The frist: childclass");
 	    	System.out.println("The second: Oldageclass");
@@ -20,19 +20,22 @@ class InnerclassManagement {
 	    	System.out.print("1,2,3번 중 고르시오:");
 	    	kind = input.nextInt();
 	    	if(kind == 1) {
-			 classes = new Innerclass(Innerclasskind.childclass);
-			 classes.getUserInput(input);
+			 Input = new ChildrenInnerclass(Innerclasskind.childclass);
+			 Input.getUserInput(input);
+			 classes.add(Input);
 			
 	    		break;
 	    	}
 	    	else if(kind == 2) {
-		     classes = new OldageclassInnerclass(Innerclasskind.Oldageclass);
-		     classes.getUserInput(input);
+		    Input = new OldageclassInnerclass(Innerclasskind.Oldageclass);
+		     ((helloYeji.Input) classes).getUserInput(input);
+		     classes.add(Input);
 	    		break;
 	    	}
 	    	else if(kind == 3) {
-			     classes = new Adultclass(Innerclasskind.Adultclass);
-			     classes.getUserInput(input);
+			    Input = new Adultclass(Innerclasskind.Adultclass);
+			     ((helloYeji.Input) classes).getUserInput(input);
+			     classes.add(Input);
 		    		break;
 	    	}
 	    	else {
@@ -49,7 +52,7 @@ class InnerclassManagement {
 				String classname = input.nextLine();
 				for(int i =0; i< classes.size(); i ++) {
 					if(classes.get(i).getclassname() == classname) {
-						break;
+					 classes.remove(classes.get(i));
 					}
 				}
 	    }
@@ -58,8 +61,8 @@ class InnerclassManagement {
 				System.out.println("classname");
 				String classname = input.next();
 				for(int i=0; i<classes.size(); i ++) {
-					Innerclass Innerclass = classes.get(i);
-					if(Innerclass.getclassname() == classname) {
+					Input Input = classes.get(i);
+					if(Input.getclassname() == classname) {
 						int num = -1;
 						while ( num != 5) {
 							System.out.println("1. Add class");
@@ -72,24 +75,24 @@ class InnerclassManagement {
 							if (num == 1) {
 								System.out.println("classname: ");
 								String classname1 = input.next();
-								Innerclass.setclassname(classname1);
+								Input.setclassname(classname1);
 							}
 								
 								 else if (num == 2) {
 									 System.out.println("classplace: ");
 										String classplace = input.next();
-								 Innerclass.setclassplace(classplace);
+								Input.setclassplace(classplace);
 								}
 								 else if (num == 3) {
 									 System.out.println("classID: ");
 										String classID = input.next();
-								Innerclass.setclassID(classID);
+								Input.setclassID(classID);
 									
 								}
 								 else if (num == 4) {
 									 System.out.println("classtime: ");
 										String classtime = input.next();
-										Innerclass.setclasstime(classtime);
+										Input.setclasstime(classtime);
 						}
 								 else {
 									 continue;

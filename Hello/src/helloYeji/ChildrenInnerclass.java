@@ -2,18 +2,15 @@ package helloYeji;
 
 import java.util.Scanner;
 
-public class Adultclass extends Innerclass implements Input {
-	 
-	protected  String OtherStuendtclassID;
-	protected String OtherStudentclasstime;
+public class ChildrenInnerclass  extends Innerclass implements Input {
 	
-	public Adultclass( Innerclasskind kind) {
-		 super (kind);
-	 }
 
-	
-	
-	 public void getUserInput(Scanner input) {
+
+	public ChildrenInnerclass(Innerclasskind kind) {
+		super (kind);
+	}
+
+	public void getUserInput(Scanner input) {
 			System.out.print("classname");
 			String classname = input.next();
 			this.setclassname(classname);
@@ -22,30 +19,16 @@ public class Adultclass extends Innerclass implements Input {
 	         String classplace = input.next();
 	         this.setclassplace(classplace);
 			
-	         char answer = 'X';
-	         while(answer != 'T' && answer != 't' && answer != 'F' && answer != 'f') {
-	         System.out.print("You have OtherStudent classID: T/F");
-	         answer = input.next().charAt(0);
-	         if(answer == 't'|| answer == 'T') {
-	        	 System.out.print("OtherStudent classID:");
-	         String classID = input.next();
-	  		   this.setclassID(classID);
-	        	 break;
-	         }
-	         else if(answer == 'f' || answer == 'F') {
-	        	 this.setclassID("");
-	        	 break;
-	         }
-	         else {
-	        	 
-	         }
-	 }        
-	        
+	         System.out.print("classID");
+		   String classID = input.next();
+		   this.setclassID(classID);
 			
 		   System.out.print("classtime");
 			String classtime = input.next();
 			this.setclasstime(classtime);
-}
+	 }
+	
+
 	 public void printInfo() {
 		 String ckind = "nothing";
 		 switch(this.kind) {
@@ -67,12 +50,6 @@ public class Adultclass extends Innerclass implements Input {
 		 System.out.println("kind:"+ ckind + "classname:"+ classname + "classplace:"+ classplace + 
 				 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
 	
-		 
-	 
+	 }
+
 }
-}
-
-
-
-
-
