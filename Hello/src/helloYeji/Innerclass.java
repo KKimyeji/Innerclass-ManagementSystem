@@ -2,14 +2,42 @@ package helloYeji;
 
 import java.util.Scanner;
 
-public abstract class  Innerclass {
+public abstract class  Innerclass implements Input {
 	protected Innerclasskind kind = Innerclasskind.childclass;
     protected  String classname;
 	protected  String classplace;
 	protected  String classID;
 	protected String classtime;
 	
-   public Innerclasskind getkind() {
+ public Innerclass() {
+	 
+ }
+ 
+ public Innerclass( Innerclasskind kind) {
+	 this.kind = kind;
+ }
+ 
+ public Innerclass(String classname,String classplace) {
+	 this.classname = classname;
+	 this.classplace = classplace;
+ }
+ 
+ public Innerclass(String classname,String classplace,String classID, String classtime) {
+	 this.classname = classname;
+	 this.classplace = classplace;
+	 this.classID = classID;
+	 this.classtime = classtime;
+ }
+ 
+ public Innerclass(Innerclasskind kind,String classname,String classplace,String classID, String classtime) {
+	 this.kind = kind;
+	 this.classname = classname;
+	 this.classplace = classplace;
+	 this.classID = classID;
+	 this.classtime = classtime;
+     }
+ 
+ public Innerclasskind getkind() {
 		return kind;
 	}
 	
@@ -29,16 +57,23 @@ public abstract class  Innerclass {
 		return getclassplace();
 	}
 	
-	public void setclassplace(String classplace) {
+	public void setclassplace(String classplace)  {
 		this.classplace = classplace;
 	}
+
 	
 	public int getclassID() {
 		return getclassID();
 	}
-	public void setclassID (String classID2) {
-		this.classID = classID2;
-	}
+	public void setclassID (String classID) throws IDException {
+		
+		if(!classID.contains(".") && !classID.equals("")) {
+			throw new IDException();
+				}
+		this.classID = classID;
+	  }
+
+	
 	
 	public String getclasstime() {
 		return getclasstime();
@@ -48,31 +83,52 @@ public abstract class  Innerclass {
 		this.classtime = classtime;
 	}
 	
-	
- public Innerclass() {
-	 
- }
- 
- public Innerclass( Innerclasskind kind) {
-	 this.kind = kind;
- }
- 
- 
- public Innerclass(Innerclasskind kind,String classname,String classplace,String classID, String classtime) {
-	 this.kind = kind;
-	 this.classname = classname;
-	 this.classplace = classplace;
-	 this.classID = classID;
-	 this.classtime = classtime;
-     }
 
  public  abstract void printInfo();
 	
 public void getUserInput(Scanner input) {
-
-	
 }
-
+	public void setclassname(Scanner input) {
+		System.out.print("Innerclass Name:");
+		String name = input.next();
+		this.setclassname(name);
+	}
+	public void setclassplace(Scanner input) {
+		System.out.print("Innerclass place:");
+		classplace = input.next();
+		
+	 }
+	
+	public void setclassID(Scanner input) throws IDException {
+		classID = " ";
+		 while (!classID.contains(".")) {
+		System.out.print("Innerclass ID:");
+		this.setclassID(classID);
+		try {
+			this.setclassID(classID);
+		} catch(IDException e) {
+			System.out.println("정보에 . 을 포함하여 입력하세요.");
+		}
+	 }
+	}
+public String getKindString() {
+	String skind = "none";
+	switch(this.kind) {
+	case  childclass:
+		skind = "child";
+		break;
+	case  Oldageclass:
+		skind = "old";
+		break;
+	case Teenagerclass:
+		skind = "Teen";
+		break;
+	case  Adultclass:
+		skind = "Adult";
+		break;
+	}
+	return skind;
+}
 
 	
 }

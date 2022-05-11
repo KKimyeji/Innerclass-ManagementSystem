@@ -1,6 +1,7 @@
 package helloYeji;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
     
 class InnerclassManagement {
@@ -13,7 +14,9 @@ class InnerclassManagement {
 	    public  void Addclass() {
 	    	int kind = 0;
 	    	Input Input;
-	    	while(kind != 1 && kind != 2) {
+	    System.out.println("Add class로 출발!");
+	    	while(kind < 1 || kind >3) {
+	    		try {
 	    	System.out.println("The frist: childclass");
 	    	System.out.println("The second: Oldageclass");
 	    	System.out.println("The Third: Adultclass ");
@@ -41,6 +44,13 @@ class InnerclassManagement {
 	    	else {
 	    		System.out.print("choose one:");
 	    	 }
+	    	} catch(InputMismatchException e) {
+	    		  System.out.println("1번부터 3번 사이의 번호만 넣으세요!");
+	 			 if(input.hasNext()) {
+	 				 input.next();
+	 			 }
+	 			kind = -1;
+	    	}
 	    	}
 		
 			
@@ -86,7 +96,12 @@ class InnerclassManagement {
 								 else if (num == 3) {
 									 System.out.println("classID: ");
 										String classID = input.next();
-								Input.setclassID(classID);
+								try {
+									Input.setclassID(classID);
+								} catch (IDException e) {
+									 System.out.println("정보에 . 을 포함하여 입력하세요.");
+										
+								}
 									
 								}
 								 else if (num == 4) {

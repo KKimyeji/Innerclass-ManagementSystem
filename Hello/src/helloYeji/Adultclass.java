@@ -26,11 +26,14 @@ public class Adultclass extends Innerclass implements Input {
 	         while(answer != 'T' && answer != 't' && answer != 'F' && answer != 'f') {
 	         System.out.print("You have OtherStudent classID: T/F");
 	         answer = input.next().charAt(0);
+	         try {
+	        	 
+	         
 	         if(answer == 't'|| answer == 'T') {
 	        	 System.out.print("OtherStudent classID:");
-	         String classID = input.next();
-	  		   this.setclassID(classID);
-	        	 break;
+	  		  setclassID(classID);
+		         
+	        	break;
 	         }
 	         else if(answer == 'f' || answer == 'F') {
 	        	 this.setclassID("");
@@ -39,36 +42,18 @@ public class Adultclass extends Innerclass implements Input {
 	         else {
 	        	 
 	         }
-	 }        
-	        
+	 }     catch(IDException e) {
+		 System.out.println("정보에 . 을 포함하여 입력하세요.");
 			
-		   System.out.print("classtime");
-			String classtime = input.next();
-			this.setclasstime(classtime);
-}
+	        
+	           }		
+	         }
+	 }
 	 public void printInfo() {
-		 String ckind = "nothing";
-		 switch(this.kind) {
-		 case childclass:
-			 ckind = "child";
-		     break;
-		 case Oldageclass:
-			 ckind = "Oldage";
-		     break;
-		 case Teenagerclass:
-			 ckind = "Teenager";
-		     break;
-		 case Adultclass:
-			 ckind = "Adult";
-		     break;
-		  default:  
-			  
-		 }
-		 System.out.println("kind:"+ ckind + "classname:"+ classname + "classplace:"+ classplace + 
-				 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
-	
-		 
-	 
+				String skind = getKindString(); 
+				 System.out.println("kind:"+ skind + "classname:"+ classname + "classplace:"+ classplace + 
+						 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
+			 
 }
 }
 
