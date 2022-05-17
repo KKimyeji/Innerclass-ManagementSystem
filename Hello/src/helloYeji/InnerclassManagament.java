@@ -3,7 +3,11 @@ package helloYeji;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Logging.IssueLogger;
+
 public class InnerclassManagament {
+	static IssueLogger logger = new IssueLogger("log.txt");
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		InnerclassManagement InnerclassManagement = new InnerclassManagement(input);
@@ -19,18 +23,22 @@ public class InnerclassManagament {
 		switch(num){
 		case 1: 
 		InnerclassManagement .Addclass();
+		logger.log("Add class");
 		 break;
 		
 		case 2:  
 		InnerclassManagement .Deleteclass();
+		logger.log("Delete class");
 		break;
 		
 		case 3: 
 		InnerclassManagement . Editclass();
+		logger.log("Edit class");
 		break;
 		
 		case 4: 
 		InnerclassManagement .Viewclass();
+		logger.log("View class");
 		break;
 		default:
 			continue;
