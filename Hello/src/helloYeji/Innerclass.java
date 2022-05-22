@@ -1,8 +1,14 @@
 package helloYeji;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class  Innerclass implements Input {
+public abstract class  Innerclass implements Input, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6757742969915250545L;
+	
 	protected Innerclasskind kind = Innerclasskind.childclass;
     protected  String classname;
 	protected  String classplace;
