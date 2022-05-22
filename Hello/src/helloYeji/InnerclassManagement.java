@@ -1,12 +1,18 @@
 package helloYeji;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
     
-class InnerclassManagement {
+class InnerclassManagement implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4536141729705604246L;
+	
 	ArrayList <Input> classes = new ArrayList <Input>();
-	Scanner input;	
+	transient Scanner input;	
 	InnerclassManagement(Scanner input){
 		this.input = input;
 	}

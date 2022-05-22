@@ -1,5 +1,11 @@
 package helloYeji;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,10 +16,16 @@ public class InnerclassManagament {
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		InnerclassManagement InnerclassManagement = new InnerclassManagement(input);
+		InnerclassManagement InnerclassManagement = getObject("InnerclassManagement.ser");
+		if(InnerclassManagement == null) {
+	InnerclassManagement = new InnerclassManagement(input);
+			
+		}
 		
 	    chooseMenu(input,InnerclassManagement);
+	    putObject(InnerclassManagement,"InnerclassManagement.ser");
 	}
+	
 	private static void chooseMenu(Scanner input,InnerclassManagement InnerclassManagement) {
 		int num = 1;	
 		while (num !=5) {
@@ -62,6 +74,53 @@ public class InnerclassManagament {
 		System.out.println("4. view class");
 		System.out.println("5. Exit");
 		System.out.println("choose only one number between 1-6:");
+	}
+	
+	public static InnerclassManagement getObject(String filename) {
+		InnerclassManagement InnerclassManagement = null;
+		FileInputStream file;
+		
+		try {
+			file = new FileInputStream(filename);
+			ObjectInputStream obj = new ObjectInputStream(file);
+			
+			InnerclassManagement= (InnerclassManagement)obj.readObject();
+			
+			obj.close();
+			file.close();	
+			
+		} catch (FileNotFoundException e) {
+			return  InnerclassManagement;
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return InnerclassManagement;
+	}
+	
+	public static void putObject(InnerclassManagement InnerclassManagement,String filename) {
+	
+		try {
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			out.writeObject(InnerclassManagement);
+			
+			out.close();
+			file.close();	
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 }
 	 
