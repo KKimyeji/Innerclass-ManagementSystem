@@ -12,8 +12,8 @@ public abstract class  Innerclass implements Input, Serializable {
 	protected Innerclasskind kind = Innerclasskind.childclass;
     protected  String classname;
 	protected  String classplace;
-	protected  String classID;
-	protected String classtime;
+	protected  String classTime;
+	protected String classID;
 	
  public Innerclass() {
 	 
@@ -31,16 +31,16 @@ public abstract class  Innerclass implements Input, Serializable {
  public Innerclass(String classname,String classplace,String classID, String classtime) {
 	 this.classname = classname;
 	 this.classplace = classplace;
+	 this.classTime = classtime;
 	 this.classID = classID;
-	 this.classtime = classtime;
  }
  
  public Innerclass(Innerclasskind kind,String classname,String classplace,String classID, String classtime) {
 	 this.kind = kind;
 	 this.classname = classname;
 	 this.classplace = classplace;
+	 this.classTime = classtime;
 	 this.classID = classID;
-	 this.classtime = classtime;
      }
  
  public Innerclasskind getkind() {
@@ -68,31 +68,30 @@ public abstract class  Innerclass implements Input, Serializable {
 	}
 
 	
+	public String getclassTime() {
+		return getclasstime();
+	}
+	public void setclassTime (String classtime) throws IDException {
+		
+		if(!classTime.contains(":") && !classTime.equals("")) {
+			throw new IDException();
+				}
+
+	this.classTime = classTime;
+ }
+	
 	public String getclassID() {
 		return getclassID();
 	}
-	public void setclassID (String classID) throws IDException {
-		
-		if(!classID.contains(".") && !classID.equals("")) {
-			throw new IDException();
-				}
+	
+	public void setclassID (String classID) {
 		this.classID = classID;
-	  }
-
-	
-	
-	public String getclasstime() {
-		return getclasstime();
-	}
-	
-	public void setclasstime (String classtime) {
-		this.classtime = classtime;
 	}
 	
 
  public  abstract void printInfo();
 	
-public void getUserInput(Scanner input) {
+public void getUserInput(Scanner input) throws IDException {
 }
 	public void setclassname(Scanner input) {
 		System.out.print("Innerclass Name:");
@@ -105,15 +104,15 @@ public void getUserInput(Scanner input) {
 		
 	 }
 	
-	public void setclassID(Scanner input) throws IDException {
-		classID = " ";
-		 while (!classID.contains(".")) {
-		System.out.print("Innerclass ID:");
-		this.setclassID(classID);
+	public void setclassTime(Scanner input) throws IDException {
+		classTime = " ";
+		 while (!classTime.contains(":")) {
+		System.out.print("Innerclass Time:");
+		this.setclassTime(classTime);
 		try {
-			this.setclassID(classID);
+			this.setclassTime(classTime);
 		} catch(IDException e) {
-			System.out.println("정보에 . 을 포함하여 입력하세요.");
+			System.out.println("정보에 : 을 포함하여 입력하세요.");
 		}
 	 }
 	}

@@ -18,12 +18,14 @@ public class InnerclassViewer {
 		
 		InnerclassManagament innerclassmanagement;
 		
-		public  InnerclassViewer(MacFrame f, InnerclassManagament innerclassmanagement) {
-			ArrayList <Input> classes = new ArrayList <Input>();
-			this.f=f;
-			this.innerclassmanagement = innerclassmanagement;
+		public InnerclassManagament innerclassmanagement() {
+			return innerclassmanagement;
+		}
+		
+		public void setInnerclassManagament(InnerclassManagament innerclassmanagement) {
+			this.innerclassmanagement= innerclassmanagement;
 			
-			System.out.println("###"+ innerclassmanagement.size()+ "###");
+		
 			
 			DefaultTableModel md = new DefaultTableModel();
 			md.addColumn("Name");
@@ -31,7 +33,7 @@ public class InnerclassViewer {
 			md.addColumn("ID");
 			md.addColumn("Time");
 				
-			for(int i =0; i < classes.size(); i++) {
+			for(int i =0; i < InnerclassManagament.size(); i++) {
 				Vector row = new Vector();
 				Input in = InnerclassManagament.get(i);
 				row.add(in.getclassname());
@@ -47,8 +49,18 @@ public class InnerclassViewer {
 		this.add(sp);
 		
 	}
+		
+public  InnerclassViewer(MacFrame f, InnerclassManagament innerclassmanagement) {
+			ArrayList<Input> classes = new ArrayList<Input>();
+			this.f=f;
+			this.innerclassmanagement = innerclassmanagement;
+			System.out.println("###"+ innerclassmanagement.size()+ "###");
+}
+
+
 
 		private void add(JScrollPane sp) {
+			// TODO Auto-generated method stub
 			
 		}
 

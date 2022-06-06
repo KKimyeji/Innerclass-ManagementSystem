@@ -13,7 +13,7 @@ public class Adultclass extends Innerclass implements Input {
 
 	
 	
-	 public void getUserInput(Scanner input) {
+	 public void getUserInput(Scanner input) throws IDException {
 			System.out.print("classname");
 			String classname = input.next();
 			this.setclassname(classname);
@@ -26,9 +26,6 @@ public class Adultclass extends Innerclass implements Input {
 	         while(answer != 'T' && answer != 't' && answer != 'F' && answer != 'f') {
 	         System.out.print("You have OtherStudent classID: T/F");
 	         answer = input.next().charAt(0);
-	         try {
-	        	 
-	         
 	         if(answer == 't'|| answer == 'T') {
 	        	 System.out.print("OtherStudent classID:");
 	  		  setclassID(classID);
@@ -41,18 +38,13 @@ public class Adultclass extends Innerclass implements Input {
 	         }
 	         else {
 	        	 
-	         }
-	 }     catch(IDException e) {
-		 System.out.println("정보에 . 을 포함하여 입력하세요.");
-			
-	        
-	           }		
+	         }		
 	         }
 	 }
 	 public void printInfo() {
 				String skind = getKindString(); 
 				 System.out.println("kind:"+ skind + "classname:"+ classname + "classplace:"+ classplace + 
-						 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
+						 "classID:"+ classID + "calsstime:"+classTime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classTime); 
 			 
 }
 
@@ -100,6 +92,30 @@ public class Adultclass extends Innerclass implements Input {
 
 	@Override
 	public void setClassTime(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public String getclasstime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void setclasstime(String classtime) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void setClassID(String input) {
 		// TODO Auto-generated method stub
 		
 	}

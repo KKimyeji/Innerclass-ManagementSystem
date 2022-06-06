@@ -7,12 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import helloYeji.InnerclassManagament;
+
 public class InnerclassAdder extends JPanel {
-	MacFrame f;
 	
-	public InnerclassAdder(MacFrame f) {
+	 MacFrame f;
+	
+	 InnerclassManagament innerclassmanagement;
+	
+	public InnerclassAdder(MacFrame f, InnerclassManagament innerclassmanagement) {
 		
 		this.f = f;
+		this.innerclassmanagement = innerclassmanagement;
+		
 		
 		JPanel p = new JPanel();
 		p.setLayout(new SpringLayout());
@@ -41,12 +48,20 @@ public class InnerclassAdder extends JPanel {
 		JLabel laID = new JLabel("ID: ", JLabel.TRAILING);
 		JTextField fieldID = new JTextField (10);
 		laName.setLabelFor(fieldID);
+		
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new ClassAdderListener(fieldName, fieldPlace, fieldTime, fieldID ,innerclassmanagement));
+		
+		
+		JButton cancelButton = new JButton("cancle");
+		cancelButton.addActionListener(new ClassAdderCancelListener(f));
+		
 		p.add(laID);
 		p.add(fieldID);
 		
 		
-		p.add(new JButton("save"));
-		p.add(new JButton("cancel"));
+		p.add(saveButton);
+		p.add(cancelButton);
 		
 		SpringUtilities.makeCompactGrid(p,5,2,6,6,6,6);
 		

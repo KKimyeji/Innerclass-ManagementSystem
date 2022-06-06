@@ -2,7 +2,7 @@ package helloYeji;
 
 import java.util.Scanner;
 
-public class ChildrenInnerclass  extends Innerclass implements Input {
+public class ChildrenInnerclass  extends Innerclass {
 	
 
 
@@ -11,27 +11,32 @@ public class ChildrenInnerclass  extends Innerclass implements Input {
 	}
 	
 
-	 public void printInfo() {
-		 String skind = getKindString();
-		
-		 
-		 System.out.println("kind:"+ skind + "classname:"+ classname + "classplace:"+ classplace + 
-				 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
-	
-}
-
 	public void getUserInput(String input) throws IDException {
 			setclassname(input);
 			setclassplace(input);
 			setclassID(input);
 			setclasstime(input);
 	 }
+	
+	public void printInfo() {
+		 String skind = getKindString();
+		 System.out.println("kind:"+ skind + "classname:"+ classname + "classplace:"+ classplace + 
+				 "classID:"+ classID + "calsstime:"+classTime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classTime); 
+	
+}
 
 
 	@Override
-	protected int size() {
+	public String getclasstime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
+	}
+
+
+	@Override
+	public void setclasstime(String classtime) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
@@ -50,7 +55,7 @@ public class ChildrenInnerclass  extends Innerclass implements Input {
 
 
 	@Override
-	public void setClassID(Scanner input) {
+	public void setClassID(String input) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -61,8 +66,20 @@ public class ChildrenInnerclass  extends Innerclass implements Input {
 		// TODO Auto-generated method stub
 		
 	}
-	
 
-	 
+
+	@Override
+	public void setClassID(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }
-
