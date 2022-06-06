@@ -9,23 +9,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class Menuchoice  extends JFrame{
+public class Menuchoice  extends JPanel{
 	
-	public Menuchoice() {
-		this.setSize(400,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	MacFrame f;
+	
+	public Menuchoice(MacFrame f) {
+		
+		this.f = f;
+		
+		this.setLayout(new BorderLayout());
+		
 		
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 	    JLabel la = new JLabel("Menu choice");
 	    
 	   JButton b1 = new JButton("Add class");
-	   JButton b2 = new JButton("Delete class");
+	   JButton b2 = new JButton("View class");
 	   JButton b3 = new JButton("Edit class");
-	   JButton b4 = new JButton("View class");
+	   JButton b4 = new JButton("Delete class");
 	   JButton b5 = new JButton("Done");
 	   
-		
+	   b1.addActionListener(new AddListener(f));
+	   b2.addActionListener(new ViewListener(f));
 		
 		
 		p1.add(la);
@@ -37,7 +43,8 @@ public class Menuchoice  extends JFrame{
 		
 	   this.add(p1, BorderLayout.NORTH);
 	   this.add(p2, BorderLayout.CENTER);
-		this.setVisible(true);
+	   
+	  
 	}
 
 }

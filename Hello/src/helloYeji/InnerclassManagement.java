@@ -17,6 +17,10 @@ class InnerclassManagement implements Serializable{
 		this.input = input;
 	}
 	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	
 	    public  void Addclass() {
 	    	int kind = 0;
 	    	Input Input;
