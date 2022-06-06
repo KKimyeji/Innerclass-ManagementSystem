@@ -44,6 +44,36 @@ public class OldageclassInnerclass extends Innerclass implements Input {
 }
 
 	}
+
+	@Override
+	protected int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setClassName(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setClassPlace(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setClassID(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setClassTime(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 

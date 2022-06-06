@@ -68,7 +68,7 @@ public abstract class  Innerclass implements Input, Serializable {
 	}
 
 	
-	public int getclassID() {
+	public String getclassID() {
 		return getclassID();
 	}
 	public void setclassID (String classID) throws IDException {
@@ -135,6 +135,10 @@ public String getKindString() {
 	}
 	return skind;
 }
+
+protected abstract int size();
+
+
 
 	
 }

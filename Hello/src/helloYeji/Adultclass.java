@@ -55,6 +55,54 @@ public class Adultclass extends Innerclass implements Input {
 						 "classID:"+ classID + "calsstime:"+classtime+"OtherStudentclassID:"+ classID + "OtherStudentcalsstime:"+classtime); 
 			 
 }
+
+
+
+	@Override
+	protected int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public String getclassID() {
+		return getclassID();
+		
+	}
+
+
+
+	@Override
+	public void setClassName(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void setClassPlace(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void setClassID(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void setClassTime(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 

@@ -4,9 +4,10 @@ import Logging.InnerclassViewr;
 
 public class MenuTest {
 	public static void main(String[] args) { 
+		//MacFrame f = new MacFrame();
 		
-	//Menuchoice m = new Menuchoice();
+	
 	//InnerclassViewr icv = new InnerclassViewr();
-    InnerclassAdder innerclassadder = new InnerclassAdder();
+    //InnerclassAdder innerclassadder = new InnerclassAdder();
 }
 }

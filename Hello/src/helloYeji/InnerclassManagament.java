@@ -6,10 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Logging.IssueLogger;
+import Munuchoice.MacFrame;
 
 public class InnerclassManagament {
 	static IssueLogger logger = new IssueLogger("log.txt");
@@ -18,10 +20,11 @@ public class InnerclassManagament {
 		Scanner input = new Scanner(System.in);
 		InnerclassManagement InnerclassManagement = getObject("InnerclassManagement.ser");
 		if(InnerclassManagement == null) {
-	InnerclassManagement = new InnerclassManagement(input);
+	   InnerclassManagement innerclassmanagement = new InnerclassManagement(input);
 			
 		}
 		
+		MacFrame f = new MacFrame();
 	    chooseMenu(input,InnerclassManagement);
 	    putObject(InnerclassManagement,"InnerclassManagement.ser");
 	}
@@ -66,6 +69,21 @@ public class InnerclassManagament {
 		 } 
 	}
 	
+	public void veiwInnerclasses() {
+		ArrayList <Input> classes = new ArrayList <Input>();
+		System.out.println("# of registered Innerclasses:"+ classes.size());
+		for(int i = 0; i <classes.size(); i ++) {
+			classes.get(i).printInfo();
+		}
+	}
+	
+	public int size() {
+		return 0;
+	}
+	public static Input get(int index) {
+		ArrayList <Input> classes = new ArrayList <Input>();
+		return (Innerclass) classes.get(index);
+	}
 	
 	private static void showMenu() {
 		System.out.println("1. Add class");
@@ -122,6 +140,6 @@ public class InnerclassManagament {
 		}
 	
 	}
-}
+	}
 	 
 	   
