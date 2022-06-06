@@ -16,20 +16,25 @@ import Munuchoice.MacFrame;
 public class InnerclassManagament {
 	static IssueLogger logger = new IssueLogger("log.txt");
 	
-	public static void main(String[] args) {
+	public static void main(String[] args, InnerclassManagament InnerclassManagament) {
+		
 		Scanner input = new Scanner(System.in);
-		InnerclassManagement InnerclassManagement = getObject("InnerclassManagement.ser");
-		if(InnerclassManagement == null) {
-	   InnerclassManagement innerclassmanagement = new InnerclassManagement(input);
+		InnerclassManagement innerclassManagement = getObject("InnerclassManagement.ser");
+		if(innerclassManagement == null) {
+	   innerclassManagement = new InnerclassManagement(input);
 			
 		}
 		
-		MacFrame f = new MacFrame();
-	    chooseMenu(input,InnerclassManagement);
-	    putObject(InnerclassManagement,"InnerclassManagement.ser");
+		else {
+			innerclassManagement.input(input);
+		}
+		
+		MacFrame f = new MacFrame(InnerclassManagament);
+	    chooseMenu(input,innerclassManagement);
+	    putObject(innerclassManagement,"innerclassManagement.ser");
 	}
 	
-	private static void chooseMenu(Scanner input,InnerclassManagement InnerclassManagement) {
+	private static void chooseMenu(Scanner input,InnerclassManagement innerclassManagement) {
 		int num = 1;	
 		while (num !=5) {
 		try {
@@ -37,22 +42,22 @@ public class InnerclassManagament {
 		num = input.nextInt();
 		switch(num){
 		case 1: 
-		InnerclassManagement .Addclass();
+		innerclassManagement .Addclass();
 		logger.log("Add class");
 		 break;
 		
 		case 2:  
-		InnerclassManagement .Deleteclass();
+		innerclassManagement .Deleteclass();
 		logger.log("Delete class");
 		break;
 		
 		case 3: 
-		InnerclassManagement . Editclass();
+		innerclassManagement . Editclass();
 		logger.log("Edit class");
 		break;
 		
 		case 4: 
-		InnerclassManagement .Viewclass();
+		innerclassManagement .Viewclass();
 		logger.log("View class");
 		break;
 		default:
@@ -77,7 +82,7 @@ public class InnerclassManagament {
 		}
 	}
 	
-	public int size() {
+	public static int size() {
 		return 0;
 	}
 	public static Input get(int index) {
@@ -120,13 +125,13 @@ public class InnerclassManagament {
 		return InnerclassManagement;
 	}
 	
-	public static void putObject(InnerclassManagement InnerclassManagement,String filename) {
+	public static void putObject(InnerclassManagement innerclassManagement,String filename) {
 	
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			
-			out.writeObject(InnerclassManagement);
+			out.writeObject(innerclassManagement);
 			
 			out.close();
 			file.close();	
@@ -139,6 +144,11 @@ public class InnerclassManagament {
 			e.printStackTrace();
 		}
 	
+	}
+
+	public void addInnerclass(Input innerclass) {
+		// TODO Auto-generated method stub
+		
 	}
 	}
 	 

@@ -1,9 +1,18 @@
 package Munuchoice;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import javax.swing.JButton;
+
+import helloYeji.InnerclassManagament;
+
 
 public class ViewListener implements ActionListener {
 	MacFrame f;
@@ -11,12 +20,44 @@ public class ViewListener implements ActionListener {
 	public ViewListener(MacFrame f) {
     this.f = f;
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	JButton b = (JButton) e.getSource();
-	InnerclassViewer icv = f.getInnerclassviewr1();
-	f.setupPanel(icv);
+		InnerclassViewer innerclassviewer = f.getInnerclassviewr();
+		InnerclassManagament innerclassManagement = getObject("InnerclassManagement.ser");
+		innerclassviewer.setInnerclassManagament(innerclassManagement);
+		
+	f.getContentPane().removeAll();
+	f.getContentPane().add(innerclassviewer);
+	f.revalidate();
+	f.repaint();
+	}
+	
+	public static InnerclassManagament getObject(String filename) {
+		InnerclassManagament InnerclassManagement = null;
+		FileInputStream file;
+		
+		try {
+			file = new FileInputStream(filename);
+			ObjectInputStream obj = new ObjectInputStream(file);
+			
+			InnerclassManagement= (InnerclassManagament)obj.readObject();
+			
+			obj.close();
+			file.close();	
+			
+		} catch (FileNotFoundException e) {
+			return  InnerclassManagement;
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return InnerclassManagement;
 	}
 
 }

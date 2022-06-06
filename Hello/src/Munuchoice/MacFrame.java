@@ -1,40 +1,45 @@
 package Munuchoice;
 
 
+
+import java.awt.Component;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import helloYeji.InnerclassManagament;
 
 
+
 public class MacFrame extends JFrame{
 	
-	 InnerclassManagament innerclassmanagement;
+	InnerclassManagament innerclassmanagement;
+	 
     Menuchoice m ;
-	InnerclassViewer icv ;
     InnerclassAdder innerclassadder ;
+    InnerclassViewer Innerclassviewr ;
   
 	
-	public MacFrame() {
+	public MacFrame(InnerclassManagament innerclassManagement) {
+		this.innerclassmanagement = innerclassmanagement;
 		this.setSize(400,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("My Frame");
 
 		
-		this. innerclassmanagement = innerclassmanagement;
+		
 		this. m = new Menuchoice(this);
-		this. icv = new InnerclassViewer(null, innerclassmanagement);
-	    this. innerclassadder = new InnerclassAdder(this);
-	   
-	    
+		this.Innerclassviewr = new InnerclassViewer(this, this.innerclassmanagement);  
+		this.innerclassadder = new InnerclassAdder(this,this.innerclassmanagement);
+	
+
 		
-		this.setupPanel(m);
-		
-		
-		
-		 this.setVisible(true);
+		this.setVisible(true);
 	}
 	
+
+
+
 
 	public void setupPanel(JPanel panel) {
 		this.getContentPane().removeAll();
@@ -56,17 +61,14 @@ public class MacFrame extends JFrame{
     public void setInnerclassadder(InnerclassAdder inerrclassadder) {
     	this.innerclassadder = inerrclassadder;
     }
-    public InnerclassViewer getInnerclassviewr1() {
-		return icv;
+    public InnerclassViewer getInnerclassviewr() {
+		return Innerclassviewr;
     }
     
     public void setInnerclassviewr(InnerclassViewer icv) {
-    	this.icv = icv;
+    	this.Innerclassviewr = icv;
     }
 
 
-	public void setupPanel(InnerclassViewer icv2) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

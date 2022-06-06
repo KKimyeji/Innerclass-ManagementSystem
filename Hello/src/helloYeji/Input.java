@@ -23,7 +23,7 @@ public interface Input {
 
 	public void setclasstime(String classtime);
 	
-	public void getUserInput(Scanner input);
+	public void getUserInput(Scanner input) throws IDException;
 
 	public void printInfo();
 	
@@ -31,9 +31,11 @@ public interface Input {
 	
 	public void setClassPlace(Scanner input);
 	
-	public void setClassID(Scanner input);
+	public void setClassID(String input);
 	
 	public void setClassTime(Scanner input);
+
+	void setClassID(Scanner input);
 	 
 	 
 }

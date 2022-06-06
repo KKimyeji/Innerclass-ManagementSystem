@@ -21,10 +21,24 @@ class InnerclassManagement implements Serializable{
 		this.input = input;
 	}
 	
+	 public  void Addclass(String name,String Place,String Time,String ID) {
+		 Input Input = new ChildrenInnerclass(Innerclasskind.childclass);
+		 try {
+			Input.getUserInput(input);
+		} catch (IDException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 classes.add(Input);
+	 }
+
+	 public  void Addclass(Input Input) {
+		 classes.add(Input);
+	 }
+	
 	    public  void Addclass() {
 	    	int kind = 0;
 	    	Input Input;
-	    System.out.println("Add class로 출발!");
 	    	while(kind < 1 || kind >3) {
 	    		try {
 	    	System.out.println("The frist: childclass");
@@ -36,19 +50,18 @@ class InnerclassManagement implements Serializable{
 			 Input = new ChildrenInnerclass(Innerclasskind.childclass);
 			 Input.getUserInput(input);
 			 classes.add(Input);
-			
 	    		break;
 	    	}
 	    	else if(kind == 2) {
 		    Input = new OldageclassInnerclass(Innerclasskind.Oldageclass);
-		     ((helloYeji.Input) classes).getUserInput(input);
+		    Input.getUserInput(input);
 		     classes.add(Input);
 	    		break;
 	    	}
 	    	else if(kind == 3) {
 			    Input = new Adultclass(Innerclasskind.Adultclass);
-			     ((helloYeji.Input) classes).getUserInput(input);
-			     classes.add(Input);
+			    Input.getUserInput(input);
+			    classes.add(Input);
 		    		break;
 	    	}
 	    	else {
@@ -60,7 +73,10 @@ class InnerclassManagement implements Serializable{
 	 				 input.next();
 	 			 }
 	 			kind = -1;
-	    	}
+	    	} catch (IDException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    	}
 		
 			
@@ -104,18 +120,18 @@ class InnerclassManagement implements Serializable{
 								Input.setclassplace(classplace);
 								}
 								 else if (num == 3) {
-									 System.out.println("classID: ");
+									 System.out.println("classTime: ");
 										String classID = input.next();
 								try {
 									Input.setclassID(classID);
 								} catch (IDException e) {
-									 System.out.println("정보에 . 을 포함하여 입력하세요.");
+									 System.out.println("정보에 : 을 포함하여 입력하세요.");
 										
 								}
 									
 								}
 								 else if (num == 4) {
-									 System.out.println("classtime: ");
+									 System.out.println("classID: ");
 										String classtime = input.next();
 										Input.setclasstime(classtime);
 						}
@@ -136,6 +152,11 @@ class InnerclassManagement implements Serializable{
 				
 			
 	    }
+
+		public void input(Scanner input2) {
+			// TODO Auto-generated method stub
+			
+		}
 }
 	
 
