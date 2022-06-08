@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class OldageclassInnerclass extends Innerclass implements Input {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public OldageclassInnerclass( Innerclasskind kind) {
 		 super (kind);
 	 }

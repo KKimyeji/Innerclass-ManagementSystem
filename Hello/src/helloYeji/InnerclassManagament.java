@@ -16,7 +16,7 @@ import Munuchoice.MacFrame;
 public class InnerclassManagament {
 	static IssueLogger logger = new IssueLogger("log.txt");
 	
-	public static void main(String[] args, InnerclassManagament InnerclassManagament) {
+	public static void main(String[] args)  {
 		
 		Scanner input = new Scanner(System.in);
 		InnerclassManagement innerclassManagement = getObject("InnerclassManagement.ser");
@@ -26,15 +26,19 @@ public class InnerclassManagament {
 		}
 		
 		else {
-			innerclassManagement.input(input);
+			 innerclassManagement.setScanner(input);
 		}
 		
-		MacFrame f = new MacFrame(InnerclassManagament);
+		MacFrame frame = new MacFrame(innerclassManagament());
 	    chooseMenu(input,innerclassManagement);
 	    putObject(innerclassManagement,"innerclassManagement.ser");
 	}
 	
-	private static void chooseMenu(Scanner input,InnerclassManagement innerclassManagement) {
+	private static InnerclassManagament innerclassManagament() {
+		return null;
+	}
+
+	private static void chooseMenu(Scanner input,InnerclassManagement innerclassManagement)  {
 		int num = 1;	
 		while (num !=5) {
 		try {
@@ -90,7 +94,7 @@ public class InnerclassManagament {
 		return (Innerclass) classes.get(index);
 	}
 	
-	private static void showMenu() {
+	private static void showMenu()  {
 		System.out.println("1. Add class");
 		System.out.println("2. Delete class");
 		System.out.println("3. Edit class");

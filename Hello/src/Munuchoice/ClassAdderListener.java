@@ -2,6 +2,7 @@ package Munuchoice;
 
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,7 +12,7 @@ import java.io.ObjectOutputStream;
 import javax.swing.JTextField;
 
 import helloYeji.ChildrenInnerclass;
-import helloYeji.Innerclass;
+
 import helloYeji.InnerclassManagament;
 
 import helloYeji.Innerclasskind;
@@ -36,20 +37,19 @@ public class ClassAdderListener implements ActionListener {
 	this.innerclassmanagement=innerclassmanagement;
 	}
 	
-
-	public void actionPerformed1(ActionEvent e) {
-	Input Innerclass = new ChildrenInnerclass(Innerclasskind.childclass);
-	
-	Innerclass.setclassname(fieldName.getName());
-	Innerclass.setclassplace(fieldPlace.getText());
-	Innerclass.setclasstime(fieldTime.getText());
-	Innerclass.setClassID(fieldID.getText());
-	innerclassmanagement.addInnerclass(Innerclass);
-	putObject(innerclassmanagement,"innerclassManagement.ser");
-	Innerclass.printInfo();
-	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Input Innerclass = new ChildrenInnerclass(Innerclasskind.childclass);
+		
+		Innerclass.setclassname(fieldName.getName());
+		Innerclass.setclassplace(fieldPlace.getText());
+		Innerclass.setclasstime(fieldTime.getText());
+		Innerclass.setClassID(fieldID.getText());
+		innerclassmanagement.addInnerclass(Innerclass);
+		putObject(innerclassmanagement,"innerclassManagement.ser");
+		Innerclass.printInfo();
+		
 	}
-	
 	public static void putObject(InnerclassManagament innerclassManagement,String filename) {
 		
 		try {
@@ -72,10 +72,6 @@ public class ClassAdderListener implements ActionListener {
 	}
 
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

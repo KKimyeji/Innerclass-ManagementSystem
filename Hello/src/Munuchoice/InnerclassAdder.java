@@ -1,7 +1,8 @@
 package Munuchoice;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -11,11 +12,16 @@ import helloYeji.InnerclassManagament;
 
 public class InnerclassAdder extends JPanel {
 	
-	 MacFrame f;
+	 /**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
+
+	MacFrame f;
 	
-	 InnerclassManagament innerclassmanagement;
+    InnerclassManagament innerclassmanagement;
 	
-	public InnerclassAdder(MacFrame f, InnerclassManagament innerclassmanagement) {
+	public InnerclassAdder(MacFrame f, InnerclassManagament innerclassmanagement2) {
 		
 		this.f = f;
 		this.innerclassmanagement = innerclassmanagement;
