@@ -8,34 +8,24 @@ public interface Input {
 
     
 	public String getclassname();
-
-	public void setclassname(String classname1);
 	
 	public String getclassplace();
-
-	public void setclassplace(String classplace) ;
 	
 	public String getclassID();
-
-	public void setclassID(String classID)throws IDException;
 	
 	public String getclasstime();
 
-	public void setclasstime(String classtime);
-	
+	public void setkind(Innerclasskind kind);
+	public void setclassname(String classname);
+	public void setclassplace(String classplace);
+	public void setclasstime(String classTime);
+	public void setclassID(String classID);
 	public void getUserInput(Scanner input) throws IDException;
 
 	public void printInfo();
-	
-	public void setClassName(Scanner input);
-	
-	public void setClassPlace(Scanner input);
-	
-	public void setClassID(String input);
-	
-	public void setClassTime(Scanner input);
 
-	void setClassID(Scanner input);
-	 
+
+
+	
 	 
 }

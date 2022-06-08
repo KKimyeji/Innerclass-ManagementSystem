@@ -1,6 +1,7 @@
 package helloYeji;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,17 +12,23 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Logging.IssueLogger;
+
 import Munuchoice.MacFrame;
 
 public class InnerclassManagament {
 	static IssueLogger logger = new IssueLogger("log.txt");
 	
+	public InnerclassManagament(Scanner input) {
+		
+	}
+
+
 	public static void main(String[] args)  {
 		
 		Scanner input = new Scanner(System.in);
-		InnerclassManagement innerclassManagement = getObject("InnerclassManagement.ser");
+		InnerclassManagament innerclassManagement = getObject("InnerclassManagement.ser");
 		if(innerclassManagement == null) {
-	   innerclassManagement = new InnerclassManagement(input);
+	   innerclassManagement = new InnerclassManagament(input);
 			
 		}
 		
@@ -29,16 +36,21 @@ public class InnerclassManagament {
 			 innerclassManagement.setScanner(input);
 		}
 		
-		MacFrame frame = new MacFrame(innerclassManagament());
+
+		InnerclassManagament innerclassManagament = null;
+		MacFrame frame = new MacFrame(innerclassManagament);
 	    chooseMenu(input,innerclassManagement);
 	    putObject(innerclassManagement,"innerclassManagement.ser");
 	}
 	
-	private static InnerclassManagament innerclassManagament() {
-		return null;
+
+	private void setScanner(Scanner input) {
+		
+		
 	}
 
-	private static void chooseMenu(Scanner input,InnerclassManagement innerclassManagement)  {
+
+	private static void chooseMenu(Scanner input,InnerclassManagament innerclassManagement)  {
 		int num = 1;	
 		while (num !=5) {
 		try {
@@ -78,6 +90,30 @@ public class InnerclassManagament {
 		 } 
 	}
 	
+	private void Viewclass() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void Editclass() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void Deleteclass() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void Addclass() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	public void veiwInnerclasses() {
 		ArrayList <Input> classes = new ArrayList <Input>();
 		System.out.println("# of registered Innerclasses:"+ classes.size());
@@ -86,13 +122,6 @@ public class InnerclassManagament {
 		}
 	}
 	
-	public static int size() {
-		return 0;
-	}
-	public static Input get(int index) {
-		ArrayList <Input> classes = new ArrayList <Input>();
-		return (Innerclass) classes.get(index);
-	}
 	
 	private static void showMenu()  {
 		System.out.println("1. Add class");
@@ -103,15 +132,15 @@ public class InnerclassManagament {
 		System.out.println("choose only one number between 1-6:");
 	}
 	
-	public static InnerclassManagement getObject(String filename) {
-		InnerclassManagement InnerclassManagement = null;
+	public static InnerclassManagament getObject(String filename) {
+		InnerclassManagament InnerclassManagement = null;
 		FileInputStream file;
 		
 		try {
 			file = new FileInputStream(filename);
 			ObjectInputStream obj = new ObjectInputStream(file);
 			
-			InnerclassManagement= (InnerclassManagement)obj.readObject();
+			InnerclassManagement= (InnerclassManagament)obj.readObject();
 			
 			obj.close();
 			file.close();	
@@ -129,7 +158,7 @@ public class InnerclassManagament {
 		return InnerclassManagement;
 	}
 	
-	public static void putObject(InnerclassManagement innerclassManagement,String filename) {
+	public static void putObject(InnerclassManagament innerclassManagement,String filename) {
 	
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
@@ -150,10 +179,25 @@ public class InnerclassManagament {
 	
 	}
 
-	public void addInnerclass(Input innerclass) {
+
+	public void addClass(Input innerclass) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	public static int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public static Input get(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	}
 	 
 	   

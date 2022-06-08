@@ -25,8 +25,11 @@ public class InnerclassViewer extends JPanel {
 		
 		InnerclassManagament innerclassmanagement;
 		
-		public InnerclassManagament innerclassmanagement() {
-			return innerclassmanagement;
+		public InnerclassViewer(MacFrame f, InnerclassManagament innerclassManagement) {
+			ArrayList<Input> classes = new ArrayList<Input>();
+			this.f = f;
+			this.innerclassmanagement = innerclassManagement;
+
 		}
 		
 		public void setInnerclassManagament(InnerclassManagament innerclassmanagement) {
@@ -42,7 +45,7 @@ public class InnerclassViewer extends JPanel {
 				
 			for(int i =0; i < InnerclassManagament.size(); i++) {
 				Vector<String> row = new Vector<String>();
-				Input in = InnerclassManagament.get(i);
+				Input in = innerclassmanagement.get(i);
 				row.add(in.getclassname());
 				row.add(in.getclassplace());
 			    row.add(in.getclassID());
@@ -56,12 +59,14 @@ public class InnerclassViewer extends JPanel {
 		this.add(sp);
 		
 	}
+		public InnerclassManagament getInnerclassManagement() {
+			return innerclassmanagement;
+		}
 		
-public  InnerclassViewer(MacFrame f, InnerclassManagament innerclassmanagement) {
-			ArrayList<Input> classes = new ArrayList<Input>();
-			this.f=f;
-			this.innerclassmanagement = innerclassmanagement;
-			
-}
+		public void setInnerclassManagement(InnerclassManagament innerclassManagement) {
+			this.innerclassmanagement = innerclassManagement;
+		}
+
+
 
 }

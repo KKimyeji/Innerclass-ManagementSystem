@@ -69,7 +69,7 @@ public abstract class  Innerclass implements Input, Serializable {
 
 	
 	public String getclassTime() {
-		return getclasstime();
+		return getclassTime();
 	}
 	public void setclassTime (String classTime) throws IDException {
 		
@@ -93,29 +93,7 @@ public abstract class  Innerclass implements Input, Serializable {
 	
 public void getUserInput(Scanner input) throws IDException {
 }
-	public void setclassname(Scanner input) {
-		System.out.print("Innerclass Name:");
-		String name = input.next();
-		this.setclassname(name);
-	}
-	public void setclassplace(Scanner input) {
-		System.out.print("Innerclass place:");
-		classplace = input.next();
-		
-	 }
 	
-	public void setclassTime(Scanner input) throws IDException {
-		classTime = " ";
-		 while (!classTime.contains(":")) {
-		System.out.print("Innerclass Time:");
-		this.setclassTime(classTime);
-		try {
-			this.setclassTime(classTime);
-		} catch(IDException e) {
-			System.out.println("정보에 : 을 포함하여 입력하세요.");
-		}
-	 }
-	}
 public String getKindString() {
 	String skind = "none";
 	switch(this.kind) {
@@ -135,7 +113,6 @@ public String getKindString() {
 	return skind;
 }
 
-protected abstract int size();
 
 
 
