@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import javax.swing.JTextField;
 
 import helloYeji.ChildrenInnerclass;
-
+import helloYeji.IDException;
 import helloYeji.InnerclassManagament;
 
 import helloYeji.Innerclasskind;
@@ -43,9 +43,11 @@ public class ClassAdderListener implements ActionListener {
 		
 		Innerclass.setclassname(fieldName.getName());
 		Innerclass.setclassplace(fieldPlace.getText());
+		
 		Innerclass.setclasstime(fieldTime.getText());
-		Innerclass.setClassID(fieldID.getText());
-		innerclassmanagement.addInnerclass(Innerclass);
+		
+		Innerclass.setclassID(fieldTime.getText());
+		innerclassmanagement.addClass(Innerclass);
 		putObject(innerclassmanagement,"innerclassManagement.ser");
 		Innerclass.printInfo();
 		

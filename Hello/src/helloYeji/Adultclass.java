@@ -63,58 +63,14 @@ public class Adultclass extends Innerclass implements Input {
 
 
 	@Override
-	public void setclasstime(String classtime) {
+	public void setclasstime(String classTime) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	@Override
-	public void setClassName(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void setClassPlace(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void setClassID(String input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void setClassTime(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void setClassID(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	protected int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 
 	

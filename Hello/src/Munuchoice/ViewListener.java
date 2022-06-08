@@ -27,12 +27,10 @@ public class ViewListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		InnerclassViewer innerclassviewer = f.getInnerclassviewer();
 		InnerclassManagament innerclassManagement = getObject("InnerclassManagement.ser");
-		innerclassviewer.setInnerclassManagament(innerclassManagement);
+		innerclassviewer.setInnerclassManagement(innerclassManagement);
+		f.setupPanel(innerclassviewer);
 		
-	f.getContentPane().removeAll();
-	f.setContentPane(innerclassviewer);
-	f.revalidate();
-	f.repaint();
+	
 	}
 	
 	public static InnerclassManagament getObject(String filename) {

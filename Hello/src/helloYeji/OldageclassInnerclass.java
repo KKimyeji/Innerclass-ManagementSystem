@@ -14,6 +14,31 @@ public class OldageclassInnerclass extends Innerclass implements Input {
 	 }
 	 
 	 public void getUserInput(Scanner input) {
+		 try {
+				setclassID(input);
+			} catch (IDException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			System.out.print("Innerclass Name: ");
+			String className = input.nextLine();
+			this.setclassname(className);
+
+			System.out.print("Innerclass place : ");
+			String classPlace = input.nextLine();
+			this.setclassplace(classPlace);
+
+			while (true) {
+				try {
+					System.out.print("Innerclass Time:");
+					String classtime = input.nextLine();
+					this.setclassTime(classtime);
+					break;
+				} catch (IDException e) {
+					
+				}
+			}
 	 }
 	 
 	 public void printInfo() {
@@ -26,9 +51,13 @@ public class OldageclassInnerclass extends Innerclass implements Input {
 	         while(answer != 'T' && answer != 't' && answer != 'F' && answer != 'f') {
 	         System.out.print("You have classID: T/F");
 	         answer = input.next().charAt(0);
+	         input.nextLine();
+	         
 	         if(answer == 't'|| answer == 'T') {
+	        	 
 	        	 System.out.print("classID");
-	         setclassID(classID);
+	        	 String classID = input.nextLine();
+	            setclassID(classID);
 	        	 break;
 	         }
 	         else if(answer == 'f' || answer == 'F') {
@@ -45,35 +74,7 @@ public class OldageclassInnerclass extends Innerclass implements Input {
 
 	}
 
-	@Override
-	protected int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setClassName(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setClassPlace(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setClassID(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setClassTime(Scanner input) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public String getclasstime() {
@@ -82,16 +83,12 @@ public class OldageclassInnerclass extends Innerclass implements Input {
 	}
 
 	@Override
-	public void setclasstime(String classtime) {
+	public void setclasstime(String classTime) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void setClassID(String input) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
 
 

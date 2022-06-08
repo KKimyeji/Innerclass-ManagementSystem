@@ -18,24 +18,23 @@ public class MacFrame extends JFrame{
 	 */
 	//private static final long serialVersionUID = 1L;
 
-	InnerclassManagament innerclassmanagement;
+	InnerclassManagament innerclassManagement;
 	 
     Menuchoice m ;
     InnerclassAdder innerclassadder ;
     InnerclassViewer Innerclassviewer ;
   
 	
-	public MacFrame(InnerclassManagament innerclassmanagament) {
+	public MacFrame(InnerclassManagament innerclassManagement) {
 	
 		this.setSize(400,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("My Frame");
 
-		
-	    this.innerclassmanagement = innerclassmanagament;
+	    this.innerclassManagement = innerclassManagement;
 		this. m = new Menuchoice(this);
-		this.Innerclassviewer = new InnerclassViewer(this, this.innerclassmanagement);  
-		this.innerclassadder = new InnerclassAdder(this,this.innerclassmanagement);
+		this.Innerclassviewer = new InnerclassViewer(this, this.innerclassManagement);  
+		this.innerclassadder = new InnerclassAdder(this,this.innerclassManagement);
 	
 
 		this.setupPanel(m);
