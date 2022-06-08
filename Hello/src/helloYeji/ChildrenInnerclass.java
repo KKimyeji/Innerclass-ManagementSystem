@@ -2,8 +2,14 @@ package helloYeji;
 
 import java.util.Scanner;
 
-public class ChildrenInnerclass  extends Innerclass {
+public class ChildrenInnerclass  extends Innerclass implements Input {
 	
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 
 	public ChildrenInnerclass(Innerclasskind kind) {
@@ -82,4 +88,5 @@ public class ChildrenInnerclass  extends Innerclass {
 	}
 
 
+	
 }

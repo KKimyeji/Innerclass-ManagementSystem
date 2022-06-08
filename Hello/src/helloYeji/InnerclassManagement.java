@@ -1,6 +1,7 @@
 package helloYeji;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,33 +13,37 @@ class InnerclassManagement implements Serializable{
 	private static final long serialVersionUID = -4536141729705604246L;
 	
 	ArrayList <Input> classes = new ArrayList <Input>();
-	transient Scanner input;	
+	transient Scanner input;
+	
 	InnerclassManagement(Scanner input){
 		this.input = input;
 	}
 	
-	public void setScanner(Scanner input) {
-		this.input = input;
+	public void setScanner(Scanner input2) {
+		this.input = input2;
 	}
+	
 	
 	 public  void Addclass(String name,String Place,String Time,String ID) {
 		 Input Input = new ChildrenInnerclass(Innerclasskind.childclass);
 		 try {
 			Input.getUserInput(input);
 		} catch (IDException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 classes.add(Input);
 	 }
 
-	 public  void Addclass(Input Input) {
-		 classes.add(Input);
+	 public  void Addclass(Input input) {
+		 classes.add(input);
 	 }
 	
 	    public  void Addclass() {
-	    	int kind = 0;
 	    	Input Input;
+	    	
+	    	int kind = 0;
+	    	
+	    	
 	    	while(kind < 1 || kind >3) {
 	    		try {
 	    	System.out.println("The frist: childclass");
@@ -153,10 +158,6 @@ class InnerclassManagement implements Serializable{
 			
 	    }
 
-		public void input(Scanner input2) {
-			// TODO Auto-generated method stub
-			
-		}
 }
 	
 

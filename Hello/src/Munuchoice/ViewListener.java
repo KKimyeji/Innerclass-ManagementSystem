@@ -1,6 +1,7 @@
 package Munuchoice;
 
-import java.awt.Component;
+
+
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
@@ -9,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import javax.swing.JButton;
+
 
 import helloYeji.InnerclassManagament;
 
@@ -24,12 +25,12 @@ public class ViewListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		InnerclassViewer innerclassviewer = f.getInnerclassviewr();
+		InnerclassViewer innerclassviewer = f.getInnerclassviewer();
 		InnerclassManagament innerclassManagement = getObject("InnerclassManagement.ser");
 		innerclassviewer.setInnerclassManagament(innerclassManagement);
 		
 	f.getContentPane().removeAll();
-	f.getContentPane().add(innerclassviewer);
+	f.setContentPane(innerclassviewer);
 	f.revalidate();
 	f.repaint();
 	}

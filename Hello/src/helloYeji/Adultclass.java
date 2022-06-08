@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Adultclass extends Innerclass implements Input {
 	 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected  String OtherStuendtclassID;
 	protected String OtherStudentclasstime;
 	
@@ -51,16 +55,16 @@ public class Adultclass extends Innerclass implements Input {
 
 
 	@Override
-	protected int size() {
+	public String getclasstime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 
 
 	@Override
-	public String getclassID() {
-		return getclassID();
+	public void setclasstime(String classtime) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -83,7 +87,7 @@ public class Adultclass extends Innerclass implements Input {
 
 
 	@Override
-	public void setClassID(Scanner input) {
+	public void setClassID(String input) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -99,15 +103,7 @@ public class Adultclass extends Innerclass implements Input {
 
 
 	@Override
-	public String getclasstime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public void setclasstime(String classtime) {
+	public void setClassID(Scanner input) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -115,10 +111,13 @@ public class Adultclass extends Innerclass implements Input {
 
 
 	@Override
-	public void setClassID(String input) {
+	protected int size() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
+
+
+	
 }
 
 

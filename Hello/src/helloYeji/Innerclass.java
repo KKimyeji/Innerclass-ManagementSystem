@@ -71,7 +71,7 @@ public abstract class  Innerclass implements Input, Serializable {
 	public String getclassTime() {
 		return getclasstime();
 	}
-	public void setclassTime (String classtime) throws IDException {
+	public void setclassTime (String classTime) throws IDException {
 		
 		if(!classTime.contains(":") && !classTime.equals("")) {
 			throw new IDException();

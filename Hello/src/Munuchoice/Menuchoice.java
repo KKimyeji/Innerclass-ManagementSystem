@@ -3,14 +3,19 @@ package Munuchoice;
 
 import java.awt.BorderLayout;
 
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
 public class Menuchoice  extends JPanel{
 	
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L; 
 	MacFrame f;
 	
 	public Menuchoice(MacFrame f) {
