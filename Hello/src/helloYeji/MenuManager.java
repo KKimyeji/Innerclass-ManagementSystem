@@ -22,19 +22,19 @@ public class MenuManager {
 		
 	}
 
-	public static void main(String[] args, MenuManager menumanger) {
+	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		MenuManager menumanager = getObject("MenuManager.ser");
-		if (menumanager == null) {
-			menumanager = new MenuManager(input);
+		InnerclassManagement innerclassmanagement = getObject("MenuManager.ser");
+		if (innerclassmanagement == null) {
+			innerclassmanagement = new InnerclassManagement(input);
 		} else {
-			menumanager.setScanner(input);
+			innerclassmanagement.setScanner(input);
 		}
 
-		MacFrame frame = new MacFrame(menumanger);
-		chooseMenu(input, menumanager);
-		putObject(menumanager, "MenuManager.ser");
+		MacFrame frame = new MacFrame(innerclassmanagement);
+		chooseMenu(input, innerclassmanagement);
+		putObject(innerclassmanagement, "MenuManager.ser");
 	}
 
 	private void setScanner(Scanner input) {
@@ -42,7 +42,7 @@ public class MenuManager {
 		
 	}
 
-	private static void chooseMenu(Scanner input, MenuManager menumanager) {
+	private static void chooseMenu(Scanner input, InnerclassManagement innerclassmanagement) {
 		int num = 1;
 		while (num != 5) {
 			try {
@@ -50,29 +50,30 @@ public class MenuManager {
 				num = input.nextInt();
 				switch (num) {
 				case 1:
-					menumanager.Addclass();
+					 innerclassmanagement.Addclass();
 					logger.log("Add class");
 					break;
 
 				case 2:
-					menumanager.Deleteclass();
+					 innerclassmanagement.Deleteclass();
 					logger.log("Delete class");
 					break;
 
 				case 3:
-					menumanager.Editclass();
+					 innerclassmanagement.Editclass();
 					logger.log("Edit class");
 					break;
 
 				case 4:
-					menumanager.Viewclass();
+					 innerclassmanagement.Viewclass();
+					 
 					logger.log("View class");
 					break;
 				default:
 					continue;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("1踰덈��꽣 5踰� �궗�씠�쓽 踰덊샇留� �꽔�쑝�꽭�슂!");
+				System.out.println("1번부터 5번까지 넣으세요!");
 				if (input.hasNext()) {
 					input.next();
 				}
@@ -123,21 +124,21 @@ public class MenuManager {
 		System.out.println("choose only one number between 1-6:");
 	}
 
-	public static MenuManager getObject(String filename) {
-		MenuManager MenuManager = null;
+	public static InnerclassManagement getObject(String filename) {
+		InnerclassManagement innerclassmanagement = null;
 		FileInputStream file;
 
 		try {
 			file = new FileInputStream(filename);
 			ObjectInputStream obj = new ObjectInputStream(file);
 
-			MenuManager = (MenuManager) obj.readObject();
+			innerclassmanagement = (InnerclassManagement) obj.readObject();
 
 			obj.close();
 			file.close();
 
 		} catch (FileNotFoundException e) {
-			return MenuManager;
+			return innerclassmanagement;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -146,16 +147,16 @@ public class MenuManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return MenuManager;
+		return innerclassmanagement;
 	}
 
-	public static void putObject(MenuManager menumanager, String filename) {
+	public static void putObject(InnerclassManagement innerclassmanagement, String filename) {
 
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);
 
-			out.writeObject(menumanager);
+			out.writeObject(innerclassmanagement);
 
 			out.close();
 			file.close();
@@ -171,10 +172,7 @@ public class MenuManager {
 	}
 
 
-	public Input get(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public void addClass(Input innerclass) {
 		// TODO Auto-generated method stub
