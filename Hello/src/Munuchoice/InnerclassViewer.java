@@ -18,29 +18,29 @@ import javax.swing.table.DefaultTableModel;
 import helloYeji.Input;
 import helloYeji.MenuManager;
 
-public class InnerclassViewer extends JPanel {
+public class InnerclassViewer<InnerclassManagemet> extends JPanel {
 
 MacFrame f;
-MenuManager menumanager;
+InnerclassManagemet innerclassmanagement;
 
-public InnerclassViewer(MacFrame f, MenuManager menumanager) {
+public InnerclassViewer(MacFrame f, InnerclassManagemet innerclassmanagement) {
 	ArrayList<Input> classes = new ArrayList<Input>();
 	this.f = f;
-	this.menumanager = menumanager;
+	this.innerclassmanagement = innerclassmanagement;
 
 }
-public void setInnerclassManagament(MenuManager menumanager) {
-	this.menumanager = menumanager;
-	System.out.println("###" + menumanager.size() + "###");
+public void setInnerclassManagament(InnerclassManagemet innerclassmanagement) {
+	this.innerclassmanagement = innerclassmanagement;
+	System.out.println("###" + ((ArrayList<Input>) innerclassmanagement).size() + "###");
 	DefaultTableModel md = new DefaultTableModel();
 	md.addColumn("Name");
 	md.addColumn("Place");
 	md.addColumn("ID");
 	md.addColumn("Time");
 
-	for (int i = 0; i < menumanager.size(); i++) {
+	for (int i = 0; i < ((ArrayList<Input>) innerclassmanagement).size(); i++) {
 		Vector<String> row = new Vector<String>();
-		Input in = menumanager.get(i);
+		Input in = ((ArrayList<Input>) innerclassmanagement).get(i);
 		row.add(in.getclassname());
 		row.add(in.getclassplace());
 		row.add(in.getclassID());
@@ -55,11 +55,11 @@ public void setInnerclassManagament(MenuManager menumanager) {
 
 }
 
-public MenuManager getMenuManager() {
-	return menumanager;
+public InnerclassManagemet getinnerclassmanagement() {
+	return innerclassmanagement;
 }
-public void setMenuManager(MenuManager menumanager) {
-	this.menumanager = menumanager;
+public void seInnerclassManagement(InnerclassManagemet innerclassmanagement) {
+	this.innerclassmanagement = innerclassmanagement;
 }
 
 

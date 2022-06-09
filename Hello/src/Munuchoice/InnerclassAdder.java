@@ -16,13 +16,13 @@ import javax.swing.SpringLayout;
 import helloYeji.MenuManager;
 
 
-public class InnerclassAdder extends JPanel {
+public class InnerclassAdder<InnerclassManagement> extends JPanel {
 	MacFrame f;
-	MenuManager menumanager;
+	InnerclassManagement innerclassmanagement;
 
-	public InnerclassAdder(MacFrame f, MenuManager menumanager) {
+	public InnerclassAdder(MacFrame f, InnerclassManagement innerclassmanagement) {
 		this.f = f;
-		this.menumanager = menumanager;
+		this.innerclassmanagement = innerclassmanagement;
 
 		JPanel p = new JPanel();
 		p.setLayout(new SpringLayout());
@@ -51,7 +51,7 @@ public class InnerclassAdder extends JPanel {
 
 		JButton saveButton = new JButton("save");
 		saveButton.addActionListener(
-				new ClassAdderListener(fieldName, fieldPlace, fieldTime, fieldID, menumanager));
+				new ClassAdderListener(fieldName, fieldPlace, fieldTime, fieldID, innerclassmanagement));
 
 		JButton cancelButton = new JButton("cancle");
 		cancelButton.addActionListener(new ClassAdderCancelListener(f));
