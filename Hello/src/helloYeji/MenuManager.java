@@ -66,6 +66,7 @@ public class MenuManager {
 
 				case 4:
 					 innerclassmanagement.Viewclass();
+					 
 					logger.log("View class");
 					break;
 				default:
