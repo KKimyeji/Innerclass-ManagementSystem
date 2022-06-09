@@ -3,6 +3,10 @@ package Munuchoice;
 
 import java.awt.event.ActionEvent;
 
+
+
+
+
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,56 +17,66 @@ import javax.swing.JTextField;
 
 import helloYeji.ChildrenInnerclass;
 import helloYeji.IDException;
-import helloYeji.InnerclassManagament;
+
+
+
 
 import helloYeji.Innerclasskind;
 import helloYeji.Input;
+import helloYeji.MenuManager;
 
-public class ClassAdderListener implements ActionListener {
+public class ClassAdderListener<InnerclassManagement> implements ActionListener {
 	
-	
-	JTextField fieldName ;
+	JTextField fieldName;
 	JTextField fieldPlace;
 	JTextField fieldTime;
 	JTextField fieldID;
-	 InnerclassManagament innerclassmanagement;;
-	
-	public ClassAdderListener(JTextField fieldName,
-			JTextField fieldPlace,JTextField fieldTime,
-			JTextField fieldID, InnerclassManagament innerclassmanagement) {
-	this.fieldName= fieldName;
-	this.fieldPlace= fieldPlace;
-	this.fieldTime= fieldTime;
-	this.fieldID =fieldID ;
-	this.innerclassmanagement=innerclassmanagement;
+	static MenuManager menumanager;
+
+	public ClassAdderListener(JTextField fieldName, JTextField fieldPlace, JTextField fieldTime, JTextField fieldID,
+			InnerclassManagement innerclassManagement) {
+		this.fieldName = fieldName;
+		this.fieldPlace = fieldPlace;
+		this.fieldTime = fieldTime;
+		this.fieldID = fieldID;
+		this.menumanager = menumanager;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Input Innerclass = new ChildrenInnerclass(Innerclasskind.childclass);
-		
-		Innerclass.setclassname(fieldName.getName());
+		Innerclass.setclassname(fieldName.getText());
 		Innerclass.setclassplace(fieldPlace.getText());
-		
-		Innerclass.setclasstime(fieldTime.getText());
-		
-		Innerclass.setclassID(fieldTime.getText());
-		innerclassmanagement.addClass(Innerclass);
-		putObject(innerclassmanagement,"innerclassManagement.ser");
+
+		try {
+			Innerclass.setclassTime(fieldTime.getText());
+
+		} catch (IDException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("Please enter it again");
+			fieldTime.setText("");
+			// e1.printStackTrace();
+
+		}
+		Innerclass.setclassID(fieldID.getText());
+		menumanager.addClass(Innerclass);
+		putObject(menumanager, "menumanager.ser");
 		Innerclass.printInfo();
-		
+
 	}
-	public static void putObject(InnerclassManagament innerclassManagement,String filename) {
-		
+
+	public static void putObject(MenuManager imenumanager, String filename) {
+
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);
+
 			
-			out.writeObject(innerclassManagement);
-			
+			out.writeObject(menumanager);
+
 			out.close();
-			file.close();	
-			
+			file.close();
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,10 +84,7 @@ public class ClassAdderListener implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
-
-
-
 
 }

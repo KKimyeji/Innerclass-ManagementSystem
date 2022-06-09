@@ -4,15 +4,19 @@ package Munuchoice;
 
 import java.awt.event.ActionEvent;
 
+
+
+
+
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import helloYeji.MenuManager;
 
 
-import helloYeji.InnerclassManagament;
 
 
 public class ViewListener implements ActionListener {
@@ -26,29 +30,28 @@ public class ViewListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		InnerclassViewer innerclassviewer = f.getInnerclassviewer();
-		InnerclassManagament innerclassManagement = getObject("InnerclassManagement.ser");
-		innerclassviewer.setInnerclassManagement(innerclassManagement);
+		MenuManager menumanager= getObject("InnerclassManagement.ser");
+		innerclassviewer.setInnerclassManagament(menumanager);
 		f.setupPanel(innerclassviewer);
-		
 	
 	}
 	
-	public static InnerclassManagament getObject(String filename) {
-		InnerclassManagament InnerclassManagement = null;
+	public static MenuManager  getObject(String filename) {
+		MenuManager menumanager= null;
 		FileInputStream file;
-		
+
 		try {
 			file = new FileInputStream(filename);
 			ObjectInputStream obj = new ObjectInputStream(file);
-			
-			InnerclassManagement= (InnerclassManagament)obj.readObject();
-			
+
+			menumanager  = (MenuManager) obj.readObject();
+
 			obj.close();
-			file.close();	
-			
+			file.close();
+
 		} catch (FileNotFoundException e) {
-			return  InnerclassManagement;
-			
+			return menumanager ;
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +59,9 @@ public class ViewListener implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return InnerclassManagement;
+		return menumanager ;
 	}
+
+	
 
 }
