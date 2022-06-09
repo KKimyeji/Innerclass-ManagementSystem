@@ -5,9 +5,18 @@ package Munuchoice;
 
 
 import javax.swing.JFrame;
+
+
+
+
+
+
+
 import javax.swing.JPanel;
 
-import helloYeji.InnerclassManagament;
+
+
+import helloYeji.MenuManager;
 
 
 
@@ -18,25 +27,23 @@ public class MacFrame extends JFrame{
 	 */
 	//private static final long serialVersionUID = 1L;
 
-	InnerclassManagament innerclassManagement;
-	 
+	MenuManager menumanager;
     Menuchoice m ;
     InnerclassAdder innerclassadder ;
     InnerclassViewer Innerclassviewer ;
   
 	
-	public MacFrame(InnerclassManagament innerclassManagement) {
+	public MacFrame(MenuManager menumanager) {
 	
 		this.setSize(400,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("My Frame");
 
-	    this.innerclassManagement = innerclassManagement;
+		
+	    this.menumanager = menumanager;
 		this. m = new Menuchoice(this);
-		this.Innerclassviewer = new InnerclassViewer(this, this.innerclassManagement);  
-		this.innerclassadder = new InnerclassAdder(this,this.innerclassManagement);
-	
-
+		this.Innerclassviewer = new InnerclassViewer(this, this.menumanager);  
+		this.innerclassadder = new InnerclassAdder(this,this.menumanager);
 		this.setupPanel(m);
 		this.setVisible(true);
 	}
