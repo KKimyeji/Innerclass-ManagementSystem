@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import helloYeji.InnerclassManagement;
 import helloYeji.MenuManager;
 
 
@@ -30,27 +31,26 @@ public class ViewListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		InnerclassViewer innerclassviewer = f.getInnerclassviewer();
-		MenuManager menumanager= getObject("InnerclassManagement.ser");
-		innerclassviewer.setInnerclassManagament(menumanager);
+		InnerclassManagement innerclassManagement = getObject("InnerclassManagement.ser");
+		innerclassviewer.setInnerclassManagement(innerclassManagement);
 		f.setupPanel(innerclassviewer);
 	
 	}
 	
-	public static MenuManager  getObject(String filename) {
-		MenuManager menumanager= null;
+	public static InnerclassManagement getObject(String filename) {
+		System.out.println(filename);
+		InnerclassManagement innerclassManagement = null;
 		FileInputStream file;
-
+		
 		try {
 			file = new FileInputStream(filename);
 			ObjectInputStream obj = new ObjectInputStream(file);
-
-			menumanager  = (MenuManager) obj.readObject();
-
+			innerclassManagement = (InnerclassManagement) obj.readObject();
 			obj.close();
 			file.close();
 
 		} catch (FileNotFoundException e) {
-			return menumanager ;
+			return innerclassManagement ;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +59,7 @@ public class ViewListener implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return menumanager ;
+		return innerclassManagement;
 	}
 
 	

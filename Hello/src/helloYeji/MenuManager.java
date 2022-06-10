@@ -2,6 +2,7 @@ package helloYeji;
 
 import java.io.FileInputStream;
 
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class MenuManager {
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		InnerclassManagement innerclassmanagement = getObject("MenuManager.ser");
+		InnerclassManagement innerclassmanagement = getObject("InnerclassManagement.ser");
 		if (innerclassmanagement == null) {
 			innerclassmanagement = new InnerclassManagement(input);
 		} else {
@@ -34,7 +35,7 @@ public class MenuManager {
 
 		MacFrame frame = new MacFrame(innerclassmanagement);
 		chooseMenu(input, innerclassmanagement);
-		putObject(innerclassmanagement, "MenuManager.ser");
+		putObject(innerclassmanagement, "InnerclassManagement.ser");
 	}
 
 	private void setScanner(Scanner input) {
@@ -73,7 +74,7 @@ public class MenuManager {
 					continue;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("1번부터 5번까지 넣으세요!");
+				System.out.println("1번부터 5번 사이에서만 고르세요!");
 				if (input.hasNext()) {
 					input.next();
 				}

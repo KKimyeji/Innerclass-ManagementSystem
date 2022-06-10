@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
     
-class InnerclassManagement implements Serializable{
+public class InnerclassManagement implements Serializable {
 	private static final long serialVersionUID = -4536141729705604246L;
 
 	ArrayList<Input> classes = new ArrayList<Input>();
 	transient Scanner input;
 
-	InnerclassManagement(Scanner input) {
+	public InnerclassManagement(Scanner input) {
 		this.input = input;
 	}
 
@@ -44,7 +44,7 @@ class InnerclassManagement implements Serializable{
 				System.out.println("The frist: childclass");
 				System.out.println("The second: Oldageclass");
 				System.out.println("The Third: Adultclass ");
-				System.out.print("1,2,3번중 하나만 고르세요:");
+				System.out.print("1,2,3번 중 하나만 고르세요:");
 				kind = input.nextInt();
 				if (kind == 1) {
 					Input = new ChildrenInnerclass(Innerclasskind.childclass);
@@ -65,7 +65,7 @@ class InnerclassManagement implements Serializable{
 					System.out.print("choose one:");
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("1번부터 3번 사이의 숫자만 고르세요!");
+				System.out.println("1踰덈��꽣 3踰� �궗�씠�쓽 �닽�옄留� 怨좊Ⅴ�꽭�슂!");
 				if (input.hasNext()) {
 					input.next();
 				}
@@ -155,10 +155,9 @@ class InnerclassManagement implements Serializable{
 	public int size() {
 		return classes.size();
 	}
+
 	public Input get(int index) {
-		return (Innerclass)classes.get(index);
+		return (Innerclass) classes.get(index);
 	}
-	
-	
-	
+
 }
