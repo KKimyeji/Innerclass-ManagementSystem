@@ -11,12 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-
-
+import helloYeji.InnerclassManagement;
 import helloYeji.MenuManager;
 
 
-public class InnerclassAdder<InnerclassManagement> extends JPanel {
+public class InnerclassAdder extends JPanel {
 	MacFrame f;
 	InnerclassManagement innerclassmanagement;
 

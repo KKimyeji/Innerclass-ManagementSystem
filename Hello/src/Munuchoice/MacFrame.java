@@ -14,19 +14,12 @@ import javax.swing.JFrame;
 
 import javax.swing.JPanel;
 
-
-
+import helloYeji.InnerclassManagement;
 import helloYeji.MenuManager;
 
 
 
-public class MacFrame<InnerclassManagement> extends JFrame{
-	
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = 1L;
-
+public class MacFrame extends JFrame{
 	InnerclassManagement innerclassmanagement;
     Menuchoice m ;
     InnerclassAdder innerclassadder ;
@@ -34,16 +27,14 @@ public class MacFrame<InnerclassManagement> extends JFrame{
   
 	
 	public MacFrame(InnerclassManagement innerclassmanagement) {
-	
 		this.setSize(400,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("My Frame");
-
+	    this.innerclassmanagement =  innerclassmanagement;
+		this.m = new Menuchoice(this);
+		this.Innerclassviewer = new InnerclassViewer(this, this.innerclassmanagement);
+		this.innerclassadder = new InnerclassAdder(this,this.innerclassmanagement);
 		
-	    this. innerclassmanagement =  innerclassmanagement;
-		this. m = new Menuchoice(this);
-		this.Innerclassviewer = new InnerclassViewer(this, this. innerclassmanagement);  
-		this.innerclassadder = new InnerclassAdder(this,this. innerclassmanagement);
 		this.setupPanel(m);
 		this.setVisible(true);
 	}
@@ -77,12 +68,4 @@ public class MacFrame<InnerclassManagement> extends JFrame{
     	
     }
 
-
-
-
-
-	
-
-
-	
 }
